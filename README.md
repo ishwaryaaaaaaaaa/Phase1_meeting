@@ -193,6 +193,34 @@ own full-agent score under that investor's weights. Same winner (MSFT) for all t
 the ESG-heavy investor scores its winner noticeably higher (0.223) than the other two (0.152–0.154),
 since MSFT's strong ESG profile is worth more to an investor who weights ESG at 70%.</sub></p>
 
+### 4.3.1 Opening up the mechanism
+
+The plots above show *outcomes*. These four show *why* — the actual numbers underneath, not just who won.
+
+<p align="center"><img src="outputs/why_msft_wins.png" width="640" alt="Why MSFT keeps winning: scores across three perspectives for MSFT and its closest rivals"></p>
+<p align="center"><sub>Figure 4. MSFT isn't #1 on any single perspective (Finance #2, ESG #3, Risk #20)
+— but it's the only company in this set that's strong on more than one at once. NVDA is the Finance
+leader but has the worst Risk score of all 30; HD and DUK are each a one-trick pony on a different
+axis. Consistency, not dominance, is what wins a weighted-sum tournament.</sub></p>
+
+<p align="center"><img src="outputs/perspective_radar.png" width="440" alt="Radar chart comparing MSFT, NVDA, XOM, and HD across Finance, ESG, and Risk"></p>
+<p align="center"><sub>Figure 5. The same idea as a shape: MSFT's profile is the most rounded of the
+four; NVDA, XOM and HD are each spiky on one axis and collapse on another.</sub></p>
+
+<p align="center"><img src="outputs/embedding_directions.png" width="640" alt="Company embeddings with the three learned perspective directions drawn as arrows"></p>
+<p align="center"><sub>Figure 6. The 384-dimensional Finance/ESG/Risk directions, projected into the
+same 2-D view as the company embeddings (arrows rescaled to equal length — only the <em>angle</em>
+between them is meaningful here, not their length; see §4.2's real, un-rescaled $G$ matrix for that).
+Risk and ESG point in noticeably different directions from Finance, visually matching $G$'s negative
+Risk&ndash;ESG entry.</sub></p>
+
+<p align="center"><img src="outputs/worked_debate_waterfall.png" width="560" alt="Waterfall chart of the NVDA vs VZ debate, showing each agent's margin and the running evidence"></p>
+<p align="center"><sub>Figure 7. One real pair debate (NVDA vs. VZ, balanced investor), as a waterfall:
+each bar is one agent's margin, the dashed line is the running evidence total after that agent speaks.
+Finance's strong vote for NVDA (−0.0599) is partly offset by Risk favouring VZ (+0.0430); ESG's
+contribution here is genuinely negligible (−0.0003) — NVDA wins on the strength of Finance and Risk
+roughly cancelling in its favour, not because of ESG.</sub></p>
+
 ### 4.4 Stress tests
 
 **Noise.** The full 3-agent debate is more robust to additive noise on the margins than majority voting

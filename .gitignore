@@ -2,6 +2,7 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+.env
 
 # Cached raw SEC HTML downloads (172MB, regenerable via src/p02_fetch_10k.py; the extracted
 # plain-text sections we actually use are in data/raw_text/ and ARE committed).
