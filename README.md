@@ -179,6 +179,20 @@ same overall winner (MSFT) in this company set — but their complete 30-company
 only $\rho = 0.57$ (finance-heavy vs. esg-heavy), indicating materially different preferences that
 happened to coincide at rank 1 (full correlation matrix in RESULTS.md §7).
 
+<p align="center"><img src="outputs/tournament_progression.png" width="640" alt="Tournament progression: current leader's full-agent score, debate by debate, per investor"></p>
+<p align="center"><sub>Figure 2. Each investor's single-elimination tournament over all 30 companies —
+29 debates, 87 agent messages, per investor (§3). The line tracks the <em>currently undefeated</em>
+company's own full-agent score after each debate; it zigzags because the elimination queue is
+randomised, not sorted by strength, so a weak challenger can enter and briefly pull the line down
+before being eliminated itself. All three converge to MSFT, but via different paths — different
+debates, different near-misses along the way.</sub></p>
+
+<p align="center"><img src="outputs/final_choice_by_investor.png" width="480" alt="Final tournament winner and its score, per investor"></p>
+<p align="center"><sub>Figure 3. The company each investor's tournament ends on, and that company's
+own full-agent score under that investor's weights. Same winner (MSFT) for all three here — but note
+the ESG-heavy investor scores its winner noticeably higher (0.223) than the other two (0.152–0.154),
+since MSFT's strong ESG profile is worth more to an investor who weights ESG at 70%.</sub></p>
+
 ### 4.4 Stress tests
 
 **Noise.** The full 3-agent debate is more robust to additive noise on the margins than majority voting
