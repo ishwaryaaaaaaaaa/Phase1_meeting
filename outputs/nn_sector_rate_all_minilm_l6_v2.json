@@ -1,0 +1,17 @@
+{
+  "item1": {
+    "top3_same_sector": 0.6222222222222222,
+    "top1_same_sector": 0.9333333333333333,
+    "random_baseline": 0.07126436781609194
+  },
+  "item1a": {
+    "top3_same_sector": 0.5,
+    "top1_same_sector": 0.7666666666666667,
+    "random_baseline": 0.07126436781609194
+  },
+  "both": {
+    "top3_same_sector": 0.5555555555555556,
+    "top1_same_sector": 0.9333333333333333,
+    "random_baseline": 0.07126436781609194
+  }
+}

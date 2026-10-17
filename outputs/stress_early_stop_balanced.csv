@@ -1,0 +1,4 @@
+bound,messages_saved,messages_possible,pct_saved,winner_mismatches
+loose,0,360,0.0,0
+cs,0,360,0.0,0
+tight,0,360,0.0,0

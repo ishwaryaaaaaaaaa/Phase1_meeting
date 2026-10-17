@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Cached raw SEC HTML downloads (172MB, regenerable via src/p02_fetch_10k.py; the extracted
+# plain-text sections we actually use are in data/raw_text/ and ARE committed).
+data/sec_cache/
+
+# Raw Kaggle download (zip + extracted csv) used to build data/labels.csv; the labels themselves
+# (with source + as-of date per column) are committed.
+data/labels/raw/

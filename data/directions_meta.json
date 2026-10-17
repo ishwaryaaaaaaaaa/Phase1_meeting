@@ -1,0 +1,20 @@
+{
+  "embedding_tag": "all_minilm_l6_v2",
+  "variant": "item1a",
+  "perspectives": [
+    "F",
+    "E",
+    "R"
+  ],
+  "best_C": {
+    "F": 10.0,
+    "E": 0.1,
+    "R": 100.0
+  },
+  "gap_threshold": 0.25,
+  "in_sample_pair_accuracy": {
+    "F": 0.9972222222222222,
+    "E": 0.8877005347593583,
+    "R": 1.0
+  }
+}

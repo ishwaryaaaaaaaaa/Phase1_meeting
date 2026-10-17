@@ -1,0 +1,25 @@
+{
+  "winners_by_investor": {
+    "finance_heavy": "MSFT",
+    "esg_heavy": "MSFT",
+    "balanced": "MSFT"
+  },
+  "n_distinct_winners": 1,
+  "full_ranking_spearman": {
+    "finance_heavy": {
+      "finance_heavy": 1.0,
+      "esg_heavy": 0.57,
+      "balanced": 0.829
+    },
+    "esg_heavy": {
+      "finance_heavy": 0.57,
+      "esg_heavy": 1.0,
+      "balanced": 0.899
+    },
+    "balanced": {
+      "finance_heavy": 0.829,
+      "esg_heavy": 0.899,
+      "balanced": 1.0
+    }
+  }
+}

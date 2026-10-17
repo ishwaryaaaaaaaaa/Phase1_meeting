@@ -1,0 +1,852 @@
+{
+  "winner": "MSFT",
+  "bracket": [
+    [
+      "NVDA",
+      "SO",
+      "F",
+      "CAT",
+      "DUK",
+      "CVX",
+      "T",
+      "PFE",
+      "BA",
+      "JPM",
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ"
+    ],
+    [
+      "F",
+      "CAT",
+      "DUK",
+      "CVX",
+      "T",
+      "PFE",
+      "BA",
+      "JPM",
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA"
+    ],
+    [
+      "DUK",
+      "CVX",
+      "T",
+      "PFE",
+      "BA",
+      "JPM",
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F"
+    ],
+    [
+      "T",
+      "PFE",
+      "BA",
+      "JPM",
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK"
+    ],
+    [
+      "BA",
+      "JPM",
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T"
+    ],
+    [
+      "PG",
+      "TSLA",
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM"
+    ],
+    [
+      "XOM",
+      "VZ",
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG"
+    ],
+    [
+      "GS",
+      "AAPL",
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ"
+    ],
+    [
+      "KO",
+      "WMT",
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL"
+    ],
+    [
+      "PEP",
+      "COST",
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT"
+    ],
+    [
+      "BAC",
+      "COP",
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP"
+    ],
+    [
+      "UNH",
+      "HD",
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC"
+    ],
+    [
+      "GE",
+      "NEE",
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD"
+    ],
+    [
+      "GM",
+      "UPS",
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE"
+    ],
+    [
+      "MSFT",
+      "JNJ",
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS"
+    ],
+    [
+      "NVDA",
+      "F",
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT"
+    ],
+    [
+      "DUK",
+      "T",
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA"
+    ],
+    [
+      "JPM",
+      "PG",
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA",
+      "T"
+    ],
+    [
+      "VZ",
+      "AAPL",
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA",
+      "T",
+      "PG"
+    ],
+    [
+      "WMT",
+      "PEP",
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA",
+      "T",
+      "PG",
+      "VZ"
+    ],
+    [
+      "BAC",
+      "HD",
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA",
+      "T",
+      "PG",
+      "VZ",
+      "WMT"
+    ],
+    [
+      "NEE",
+      "UPS",
+      "MSFT",
+      "NVDA",
+      "T",
+      "PG",
+      "VZ",
+      "WMT",
+      "HD"
+    ],
+    [
+      "MSFT",
+      "NVDA",
+      "T",
+      "PG",
+      "VZ",
+      "WMT",
+      "HD",
+      "UPS"
+    ],
+    [
+      "T",
+      "PG",
+      "VZ",
+      "WMT",
+      "HD",
+      "UPS",
+      "MSFT"
+    ],
+    [
+      "VZ",
+      "WMT",
+      "HD",
+      "UPS",
+      "MSFT",
+      "T"
+    ],
+    [
+      "HD",
+      "UPS",
+      "MSFT",
+      "T",
+      "VZ"
+    ],
+    [
+      "MSFT",
+      "T",
+      "VZ",
+      "HD"
+    ],
+    [
+      "VZ",
+      "HD",
+      "MSFT"
+    ],
+    [
+      "MSFT",
+      "VZ"
+    ],
+    [
+      "MSFT"
+    ]
+  ],
+  "messages": 87,
+  "steps": [
+    {
+      "a": "NVDA",
+      "b": "SO",
+      "winner": "NVDA",
+      "final_evidence": -0.2372359812259674,
+      "margins": {
+        "F": -0.0259,
+        "E": -0.2496,
+        "R": 0.0383
+      }
+    },
+    {
+      "a": "F",
+      "b": "CAT",
+      "winner": "F",
+      "final_evidence": -0.05853312043473125,
+      "margins": {
+        "F": 0.0222,
+        "E": -0.0827,
+        "R": 0.002
+      }
+    },
+    {
+      "a": "DUK",
+      "b": "CVX",
+      "winner": "DUK",
+      "final_evidence": -0.19389544054865837,
+      "margins": {
+        "F": -0.0208,
+        "E": -0.1571,
+        "R": -0.016
+      }
+    },
+    {
+      "a": "T",
+      "b": "PFE",
+      "winner": "T",
+      "final_evidence": -0.07987660558428615,
+      "margins": {
+        "F": -0.0102,
+        "E": -0.0696,
+        "R": -0.0001
+      }
+    },
+    {
+      "a": "BA",
+      "b": "JPM",
+      "winner": "JPM",
+      "final_evidence": 0.045217808149755,
+      "margins": {
+        "F": 0.036,
+        "E": -0.0082,
+        "R": 0.0175
+      }
+    },
+    {
+      "a": "PG",
+      "b": "TSLA",
+      "winner": "PG",
+      "final_evidence": -0.02962270937860012,
+      "margins": {
+        "F": -0.0143,
+        "E": 0.0186,
+        "R": -0.0339
+      }
+    },
+    {
+      "a": "XOM",
+      "b": "VZ",
+      "winner": "VZ",
+      "final_evidence": 0.35755656827241183,
+      "margins": {
+        "F": 0.021,
+        "E": 0.3375,
+        "R": -0.001
+      }
+    },
+    {
+      "a": "GS",
+      "b": "AAPL",
+      "winner": "AAPL",
+      "final_evidence": 0.20591184748336674,
+      "margins": {
+        "F": -0.0022,
+        "E": 0.2043,
+        "R": 0.0038
+      }
+    },
+    {
+      "a": "KO",
+      "b": "WMT",
+      "winner": "WMT",
+      "final_evidence": 0.009839327633380888,
+      "margins": {
+        "F": -0.0262,
+        "E": 0.0493,
+        "R": -0.0132
+      }
+    },
+    {
+      "a": "PEP",
+      "b": "COST",
+      "winner": "PEP",
+      "final_evidence": -0.049895480275154114,
+      "margins": {
+        "F": -0.0161,
+        "E": -0.0307,
+        "R": -0.0031
+      }
+    },
+    {
+      "a": "BAC",
+      "b": "COP",
+      "winner": "BAC",
+      "final_evidence": -0.16588320396840572,
+      "margins": {
+        "F": -0.017,
+        "E": -0.1464,
+        "R": -0.0025
+      }
+    },
+    {
+      "a": "UNH",
+      "b": "HD",
+      "winner": "HD",
+      "final_evidence": 0.009177596028894185,
+      "margins": {
+        "F": 0.0023,
+        "E": -0.0099,
+        "R": 0.0167
+      }
+    },
+    {
+      "a": "GE",
+      "b": "NEE",
+      "winner": "NEE",
+      "final_evidence": 0.0796478422358632,
+      "margins": {
+        "F": 0.0061,
+        "E": 0.068,
+        "R": 0.0056
+      }
+    },
+    {
+      "a": "GM",
+      "b": "UPS",
+      "winner": "UPS",
+      "final_evidence": 0.09763506636954843,
+      "margins": {
+        "F": 0.001,
+        "E": 0.0941,
+        "R": 0.0026
+      }
+    },
+    {
+      "a": "MSFT",
+      "b": "JNJ",
+      "winner": "MSFT",
+      "final_evidence": -0.1571172848343849,
+      "margins": {
+        "F": -0.0235,
+        "E": -0.1486,
+        "R": 0.015
+      }
+    },
+    {
+      "a": "NVDA",
+      "b": "F",
+      "winner": "NVDA",
+      "final_evidence": -0.19131506402045487,
+      "margins": {
+        "F": -0.0548,
+        "E": -0.1402,
+        "R": 0.0037
+      }
+    },
+    {
+      "a": "DUK",
+      "b": "T",
+      "winner": "T",
+      "final_evidence": 0.2252610897645354,
+      "margins": {
+        "F": -0.0008,
+        "E": 0.2467,
+        "R": -0.0207
+      }
+    },
+    {
+      "a": "JPM",
+      "b": "PG",
+      "winner": "PG",
+      "final_evidence": 0.1021712802350521,
+      "margins": {
+        "F": -0.0199,
+        "E": 0.1134,
+        "R": 0.0087
+      }
+    },
+    {
+      "a": "VZ",
+      "b": "AAPL",
+      "winner": "VZ",
+      "final_evidence": -0.019220023415982723,
+      "margins": {
+        "F": 0.0104,
+        "E": -0.0182,
+        "R": -0.0114
+      }
+    },
+    {
+      "a": "WMT",
+      "b": "PEP",
+      "winner": "WMT",
+      "final_evidence": -0.006986726820468903,
+      "margins": {
+        "F": 0.0127,
+        "E": -0.0254,
+        "R": 0.0056
+      }
+    },
+    {
+      "a": "BAC",
+      "b": "HD",
+      "winner": "HD",
+      "final_evidence": 0.18537226002663373,
+      "margins": {
+        "F": -0.0225,
+        "E": 0.2071,
+        "R": 0.0007
+      }
+    },
+    {
+      "a": "NEE",
+      "b": "UPS",
+      "winner": "UPS",
+      "final_evidence": 0.018718622624874108,
+      "margins": {
+        "F": -0.0307,
+        "E": 0.0585,
+        "R": -0.0091
+      }
+    },
+    {
+      "a": "MSFT",
+      "b": "NVDA",
+      "winner": "MSFT",
+      "final_evidence": -0.09482002074364572,
+      "margins": {
+        "F": -0.0002,
+        "E": -0.0825,
+        "R": -0.0121
+      }
+    },
+    {
+      "a": "T",
+      "b": "PG",
+      "winner": "T",
+      "final_evidence": -0.1181821840815246,
+      "margins": {
+        "F": -0.0039,
+        "E": -0.1267,
+        "R": 0.0124
+      }
+    },
+    {
+      "a": "VZ",
+      "b": "WMT",
+      "winner": "VZ",
+      "final_evidence": -0.05604287479072809,
+      "margins": {
+        "F": -0.0183,
+        "E": -0.0363,
+        "R": -0.0015
+      }
+    },
+    {
+      "a": "HD",
+      "b": "UPS",
+      "winner": "HD",
+      "final_evidence": -0.1234403483569622,
+      "margins": {
+        "F": -0.012,
+        "E": -0.1046,
+        "R": -0.0068
+      }
+    },
+    {
+      "a": "MSFT",
+      "b": "T",
+      "winner": "MSFT",
+      "final_evidence": -0.09256899580359458,
+      "margins": {
+        "F": -0.0225,
+        "E": -0.0762,
+        "R": 0.0061
+      }
+    },
+    {
+      "a": "VZ",
+      "b": "HD",
+      "winner": "VZ",
+      "final_evidence": -0.013106458075344562,
+      "margins": {
+        "F": -0.0128,
+        "E": 0.0083,
+        "R": -0.0086
+      }
+    },
+    {
+      "a": "MSFT",
+      "b": "VZ",
+      "winner": "MSFT",
+      "final_evidence": -0.09205803237855432,
+      "margins": {
+        "F": -0.0227,
+        "E": -0.0831,
+        "R": 0.0137
+      }
+    }
+  ]
+}

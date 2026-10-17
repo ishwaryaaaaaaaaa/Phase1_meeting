@@ -1,0 +1,8 @@
+{
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "chunk_words": 150,
+  "pooling": "mean of chunk vectors, then L2-normalised",
+  "device": "cuda",
+  "n_companies": 30,
+  "torch": "2.13.0+cu126"
+}

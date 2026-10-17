@@ -1,0 +1,195 @@
+Investor: finance_heavy  beta = {'F': np.float64(0.7), 'E': np.float64(0.15), 'R': np.float64(0.15)}
+Agreement matrix G (this run's REAL learned directions, not the whiteboard's illustration):
+       F      E      R
+F  1.000  0.192  0.142
+E  0.192  1.000 -0.163
+R  0.142 -0.163  1.000
+
+Debate 1: A=NVDA vs B=AAPL      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0564  running evidence -0.0564 (favours NVDA)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0144  running evidence -0.0421 (favours NVDA)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0040  running evidence -0.0461 (favours NVDA)
+  final evidence -0.0461  =>  NVDA wins, AAPL eliminated
+  identity check: m_F+m_E+m_R = -0.0461  vs  S_ALL(AAPL) - S_ALL(NVDA) = -0.0461  OK
+
+======================================================================
+TOURNAMENT (queue method, all 30 companies)
+======================================================================
+Debate 1: A=NVDA vs B=SO      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1209  running evidence -0.1209 (favours NVDA)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0383  running evidence -0.0826 (favours NVDA)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0535  running evidence -0.1361 (favours NVDA)
+  final evidence -0.1361  =>  NVDA wins, SO eliminated
+  identity check: m_F+m_E+m_R = -0.1361  vs  S_ALL(SO) - S_ALL(NVDA) = -0.1361  OK
+Debate 2: A=F vs B=CAT      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.1035  running evidence +0.1035 (favours CAT)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0020  running evidence +0.1055 (favours CAT)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0177  running evidence +0.0877 (favours CAT)
+  final evidence +0.0877  =>  CAT wins, F eliminated
+  identity check: m_F+m_E+m_R = +0.0877  vs  S_ALL(CAT) - S_ALL(F) = +0.0877  OK
+Debate 3: A=DUK vs B=CVX      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0969  running evidence -0.0969 (favours DUK)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0160  running evidence -0.1129 (favours DUK)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0337  running evidence -0.1466 (favours DUK)
+  final evidence -0.1466  =>  DUK wins, CVX eliminated
+  identity check: m_F+m_E+m_R = -0.1466  vs  S_ALL(CVX) - S_ALL(DUK) = -0.1466  OK
+Debate 4: A=T vs B=PFE      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0478  running evidence -0.0478 (favours T)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0001  running evidence -0.0479 (favours T)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0149  running evidence -0.0628 (favours T)
+  final evidence -0.0628  =>  T wins, PFE eliminated
+  identity check: m_F+m_E+m_R = -0.0628  vs  S_ALL(PFE) - S_ALL(T) = -0.0628  OK
+Debate 5: A=BA vs B=JPM      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.1679  running evidence +0.1679 (favours JPM)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0175  running evidence +0.1854 (favours JPM)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0018  running evidence +0.1836 (favours JPM)
+  final evidence +0.1836  =>  JPM wins, BA eliminated
+  identity check: m_F+m_E+m_R = +0.1836  vs  S_ALL(JPM) - S_ALL(BA) = +0.1836  OK
+Debate 6: A=PG vs B=TSLA      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0666  running evidence -0.0666 (favours PG)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0339  running evidence -0.1005 (favours PG)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0040  running evidence -0.0966 (favours PG)
+  final evidence -0.0966  =>  PG wins, TSLA eliminated
+  identity check: m_F+m_E+m_R = -0.0966  vs  S_ALL(TSLA) - S_ALL(PG) = -0.0966  OK
+Debate 7: A=XOM vs B=VZ      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0981  running evidence +0.0981 (favours VZ)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0010  running evidence +0.0971 (favours VZ)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0723  running evidence +0.1694 (favours VZ)
+  final evidence +0.1694  =>  VZ wins, XOM eliminated
+  identity check: m_F+m_E+m_R = +0.1694  vs  S_ALL(VZ) - S_ALL(XOM) = +0.1694  OK
+Debate 8: A=GS vs B=AAPL      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0102  running evidence -0.0102 (favours GS)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0038  running evidence -0.0064 (favours GS)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0438  running evidence +0.0373 (favours AAPL)
+  final evidence +0.0373  =>  AAPL wins, GS eliminated
+  identity check: m_F+m_E+m_R = +0.0373  vs  S_ALL(AAPL) - S_ALL(GS) = +0.0373  OK
+Debate 9: A=KO vs B=WMT      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1224  running evidence -0.1224 (favours KO)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0132  running evidence -0.1356 (favours KO)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0106  running evidence -0.1251 (favours KO)
+  final evidence -0.1251  =>  KO wins, WMT eliminated
+  identity check: m_F+m_E+m_R = -0.1251  vs  S_ALL(WMT) - S_ALL(KO) = -0.1251  OK
+Debate 10: A=PEP vs B=COST      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0750  running evidence -0.0750 (favours PEP)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0031  running evidence -0.0781 (favours PEP)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0066  running evidence -0.0847 (favours PEP)
+  final evidence -0.0847  =>  PEP wins, COST eliminated
+  identity check: m_F+m_E+m_R = -0.0847  vs  S_ALL(COST) - S_ALL(PEP) = -0.0847  OK
+Debate 11: A=BAC vs B=COP      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0792  running evidence -0.0792 (favours BAC)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0025  running evidence -0.0817 (favours BAC)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0314  running evidence -0.1131 (favours BAC)
+  final evidence -0.1131  =>  BAC wins, COP eliminated
+  identity check: m_F+m_E+m_R = -0.1131  vs  S_ALL(COP) - S_ALL(BAC) = -0.1131  OK
+Debate 12: A=UNH vs B=HD      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0109  running evidence +0.0109 (favours HD)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0167  running evidence +0.0276 (favours HD)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0021  running evidence +0.0255 (favours HD)
+  final evidence +0.0255  =>  HD wins, UNH eliminated
+  identity check: m_F+m_E+m_R = +0.0255  vs  S_ALL(HD) - S_ALL(UNH) = +0.0255  OK
+Debate 13: A=GE vs B=NEE      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0286  running evidence +0.0286 (favours NEE)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0056  running evidence +0.0342 (favours NEE)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0146  running evidence +0.0487 (favours NEE)
+  final evidence +0.0487  =>  NEE wins, GE eliminated
+  identity check: m_F+m_E+m_R = +0.0487  vs  S_ALL(NEE) - S_ALL(GE) = +0.0487  OK
+Debate 14: A=GM vs B=UPS      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0045  running evidence +0.0045 (favours UPS)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0026  running evidence +0.0070 (favours UPS)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0202  running evidence +0.0272 (favours UPS)
+  final evidence +0.0272  =>  UPS wins, GM eliminated
+  identity check: m_F+m_E+m_R = +0.0272  vs  S_ALL(UPS) - S_ALL(GM) = +0.0272  OK
+Debate 15: A=MSFT vs B=JNJ      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1097  running evidence -0.1097 (favours MSFT)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0150  running evidence -0.0947 (favours MSFT)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0318  running evidence -0.1266 (favours MSFT)
+  final evidence -0.1266  =>  MSFT wins, JNJ eliminated
+  identity check: m_F+m_E+m_R = -0.1266  vs  S_ALL(JNJ) - S_ALL(MSFT) = -0.1266  OK
+Debate 16: A=NVDA vs B=CAT      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1522  running evidence -0.1522 (favours NVDA)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0057  running evidence -0.1465 (favours NVDA)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0478  running evidence -0.1943 (favours NVDA)
+  final evidence -0.1943  =>  NVDA wins, CAT eliminated
+  identity check: m_F+m_E+m_R = -0.1943  vs  S_ALL(CAT) - S_ALL(NVDA) = -0.1943  OK
+Debate 17: A=DUK vs B=T      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0038  running evidence -0.0038 (favours DUK)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0207  running evidence -0.0245 (favours DUK)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0529  running evidence +0.0284 (favours T)
+  final evidence +0.0284  =>  T wins, DUK eliminated
+  identity check: m_F+m_E+m_R = +0.0284  vs  S_ALL(T) - S_ALL(DUK) = +0.0284  OK
+Debate 18: A=JPM vs B=PG      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0928  running evidence -0.0928 (favours JPM)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0087  running evidence -0.0841 (favours JPM)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0243  running evidence -0.0598 (favours JPM)
+  final evidence -0.0598  =>  JPM wins, PG eliminated
+  identity check: m_F+m_E+m_R = -0.0598  vs  S_ALL(PG) - S_ALL(JPM) = -0.0598  OK
+Debate 19: A=VZ vs B=AAPL      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0485  running evidence +0.0485 (favours AAPL)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0114  running evidence +0.0371 (favours AAPL)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0039  running evidence +0.0332 (favours AAPL)
+  final evidence +0.0332  =>  AAPL wins, VZ eliminated
+  identity check: m_F+m_E+m_R = +0.0332  vs  S_ALL(AAPL) - S_ALL(VZ) = +0.0332  OK
+Debate 20: A=KO vs B=PEP      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0630  running evidence -0.0630 (favours KO)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0076  running evidence -0.0706 (favours KO)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0051  running evidence -0.0654 (favours KO)
+  final evidence -0.0654  =>  KO wins, PEP eliminated
+  identity check: m_F+m_E+m_R = -0.0654  vs  S_ALL(PEP) - S_ALL(KO) = -0.0654  OK
+Debate 21: A=BAC vs B=HD      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1049  running evidence -0.1049 (favours BAC)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0007  running evidence -0.1042 (favours BAC)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0444  running evidence -0.0598 (favours BAC)
+  final evidence -0.0598  =>  BAC wins, HD eliminated
+  identity check: m_F+m_E+m_R = -0.0598  vs  S_ALL(HD) - S_ALL(BAC) = -0.0598  OK
+Debate 22: A=NEE vs B=UPS      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.1431  running evidence -0.1431 (favours NEE)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0091  running evidence -0.1522 (favours NEE)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0125  running evidence -0.1397 (favours NEE)
+  final evidence -0.1397  =>  NEE wins, UPS eliminated
+  identity check: m_F+m_E+m_R = -0.1397  vs  S_ALL(UPS) - S_ALL(NEE) = -0.1397  OK
+Debate 23: A=MSFT vs B=NVDA      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0008  running evidence -0.0008 (favours MSFT)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin -0.0121  running evidence -0.0129 (favours MSFT)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0177  running evidence -0.0306 (favours MSFT)
+  final evidence -0.0306  =>  MSFT wins, NVDA eliminated
+  identity check: m_F+m_E+m_R = -0.0306  vs  S_ALL(NVDA) - S_ALL(MSFT) = -0.0306  OK
+Debate 24: A=T vs B=JPM      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin +0.0746  running evidence +0.0746 (favours JPM)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0037  running evidence +0.0784 (favours JPM)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0514  running evidence +0.0269 (favours JPM)
+  final evidence +0.0269  =>  JPM wins, T eliminated
+  identity check: m_F+m_E+m_R = +0.0269  vs  S_ALL(JPM) - S_ALL(T) = +0.0269  OK
+Debate 25: A=AAPL vs B=KO      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0117  running evidence -0.0117 (favours AAPL)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0232  running evidence +0.0115 (favours KO)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0144  running evidence -0.0029 (favours AAPL)
+  final evidence -0.0029  =>  AAPL wins, KO eliminated
+  identity check: m_F+m_E+m_R = -0.0029  vs  S_ALL(KO) - S_ALL(AAPL) = -0.0029  OK
+Debate 26: A=BAC vs B=NEE      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0177  running evidence -0.0177 (favours BAC)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0029  running evidence -0.0148 (favours BAC)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin +0.0094  running evidence -0.0054 (favours BAC)
+  final evidence -0.0054  =>  BAC wins, NEE eliminated
+  identity check: m_F+m_E+m_R = -0.0054  vs  S_ALL(NEE) - S_ALL(BAC) = -0.0054  OK
+Debate 27: A=MSFT vs B=JPM      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0301  running evidence -0.0301 (favours MSFT)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0098  running evidence -0.0203 (favours MSFT)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0678  running evidence -0.0881 (favours MSFT)
+  final evidence -0.0881  =>  MSFT wins, JPM eliminated
+  identity check: m_F+m_E+m_R = -0.0881  vs  S_ALL(JPM) - S_ALL(MSFT) = -0.0881  OK
+Debate 28: A=AAPL vs B=BAC      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0034  running evidence -0.0034 (favours AAPL)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0022  running evidence -0.0012 (favours AAPL)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0387  running evidence -0.0399 (favours AAPL)
+  final evidence -0.0399  =>  AAPL wins, BAC eliminated
+  identity check: m_F+m_E+m_R = -0.0399  vs  S_ALL(BAC) - S_ALL(AAPL) = -0.0399  OK
+Debate 29: A=MSFT vs B=AAPL      dz = z_B - z_A
+  speaker 1: Finance  beta=0.70 [highest weight speaks first]  margin -0.0572  running evidence -0.0572 (favours MSFT)
+  speaker 2: Risk     beta=0.15 [strongest challenger of Finance (G=+0.14)]  margin +0.0022  running evidence -0.0550 (favours MSFT)
+  speaker 3: ESG      beta=0.15 [remaining agent]  margin -0.0217  running evidence -0.0767 (favours MSFT)
+  final evidence -0.0767  =>  MSFT wins, AAPL eliminated
+  identity check: m_F+m_E+m_R = -0.0767  vs  S_ALL(AAPL) - S_ALL(MSFT) = -0.0767  OK
+Bracket: {NVDA, SO, F, CAT, DUK, CVX, T, PFE, BA, JPM, PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ}  ->  {F, CAT, DUK, CVX, T, PFE, BA, JPM, PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA}  ->  {DUK, CVX, T, PFE, BA, JPM, PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT}  ->  {T, PFE, BA, JPM, PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK}  ->  {BA, JPM, PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T}  ->  {PG, TSLA, XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM}  ->  {XOM, VZ, GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG}  ->  {GS, AAPL, KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ}  ->  {KO, WMT, PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL}  ->  {PEP, COST, BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO}  ->  {BAC, COP, UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP}  ->  {UNH, HD, GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC}  ->  {GE, NEE, GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC, HD}  ->  {GM, UPS, MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC, HD, NEE}  ->  {MSFT, JNJ, NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC, HD, NEE, UPS}  ->  {NVDA, CAT, DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC, HD, NEE, UPS, MSFT}  ->  {DUK, T, JPM, PG, VZ, AAPL, KO, PEP, BAC, HD, NEE, UPS, MSFT, NVDA}  ->  {JPM, PG, VZ, AAPL, KO, PEP, BAC, HD, NEE, UPS, MSFT, NVDA, T}  ->  {VZ, AAPL, KO, PEP, BAC, HD, NEE, UPS, MSFT, NVDA, T, JPM}  ->  {KO, PEP, BAC, HD, NEE, UPS, MSFT, NVDA, T, JPM, AAPL}  ->  {BAC, HD, NEE, UPS, MSFT, NVDA, T, JPM, AAPL, KO}  ->  {NEE, UPS, MSFT, NVDA, T, JPM, AAPL, KO, BAC}  ->  {MSFT, NVDA, T, JPM, AAPL, KO, BAC, NEE}  ->  {T, JPM, AAPL, KO, BAC, NEE, MSFT}  ->  {AAPL, KO, BAC, NEE, MSFT, JPM}  ->  {BAC, NEE, MSFT, JPM, AAPL}  ->  {MSFT, JPM, AAPL, BAC}  ->  {AAPL, BAC, MSFT}  ->  {MSFT, AAPL}  ->  {MSFT}
+Tournament winner: MSFT   (agent messages used: 87)
+
+Check: tournament winner (MSFT) == full-agent top-ranked company (MSFT)  OK

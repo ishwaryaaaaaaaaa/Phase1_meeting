@@ -1,0 +1,31 @@
+ticker,name,cik,sector
+AAPL,Apple,0000320193,Technology
+MSFT,Microsoft,0000789019,Technology
+NVDA,NVIDIA,0001045810,Technology
+XOM,Exxon Mobil,0000034088,Oil & Gas
+CVX,Chevron,0000093410,Oil & Gas
+COP,ConocoPhillips,0001163165,Oil & Gas
+JPM,JPMorgan Chase,0000019617,Banks
+BAC,Bank of America,0000070858,Banks
+GS,Goldman Sachs,0000886982,Banks
+NEE,NextEra Energy,0000753308,Utilities
+DUK,Duke Energy,0001326160,Utilities
+SO,Southern Company,0000092122,Utilities
+WMT,Walmart,0000104169,Retail
+COST,Costco,0000909832,Retail
+HD,Home Depot,0000354950,Retail
+JNJ,Johnson & Johnson,0000200406,Pharma & Healthcare
+PFE,Pfizer,0000078003,Pharma & Healthcare
+UNH,UnitedHealth,0000731766,Pharma & Healthcare
+PG,Procter & Gamble,0000080424,Consumer Staples
+KO,Coca-Cola,0000021344,Consumer Staples
+PEP,PepsiCo,0000077476,Consumer Staples
+CAT,Caterpillar,0000018230,Industrials
+GE,GE Aerospace,0000040545,Industrials
+BA,Boeing,0000012927,Industrials
+UPS,United Parcel Service,0001090727,Industrials
+TSLA,Tesla,0001318605,Automotive
+F,Ford,0000037996,Automotive
+GM,General Motors,0001467858,Automotive
+T,AT&T,0000732717,Telecom
+VZ,Verizon,0000732712,Telecom

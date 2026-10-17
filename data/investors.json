@@ -1,0 +1,29 @@
+{
+  "finance_heavy": {
+    "beta": {
+      "F": 0.7,
+      "E": 0.15,
+      "R": 0.15
+    },
+    "beta_bootstrap_sd": null,
+    "kind": "preset"
+  },
+  "esg_heavy": {
+    "beta": {
+      "F": 0.15,
+      "E": 0.7,
+      "R": 0.15
+    },
+    "beta_bootstrap_sd": null,
+    "kind": "preset"
+  },
+  "balanced": {
+    "beta": {
+      "F": 0.4,
+      "E": 0.35,
+      "R": 0.25
+    },
+    "beta_bootstrap_sd": null,
+    "kind": "preset"
+  }
+}
