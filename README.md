@@ -57,7 +57,10 @@ equivalence, and by how much (§2.4, §4.3).
 Each company $i$ is represented by an embedding $z_i \in \mathbb{R}^d$ ($d=384$), obtained by encoding
 its SEC 10-K Risk Factors section with a pretrained sentence encoder
 (`sentence-transformers/all-MiniLM-L6-v2`), chunking to respect the model's context window, mean-pooling
-chunk vectors, and L2-normalising.
+chunk vectors, and L2-normalising. Before chunking, each filing's extracted text is cleaned: lines
+consisting only of a bare page number or a "Table of Contents" marker — artefacts of converting the
+original filing to plain text — are dropped, and remaining lines are joined into a single continuous
+block (`p04_embed.py:clean`). See §5 for a real side effect of this rule found during inspection.
 
 ### 2.2 Perspective directions and the full agent
 
@@ -204,6 +207,14 @@ tested** (also verified on 600 synthetic random-world pairs in `tests/test_engin
   are hand-specified presets.
 - No comparison yet against a learned (rather than hand-derived) early-stopping bound, or against more
   than three agents.
+- **The page-number-stripping rule in text cleaning (§2.1) also removes some legitimate content.**
+  Checked directly across all 30 companies: in Bank of America's Business section, a workforce-
+  demographics table (e.g. "Women 50%", "Men 42%") gets flattened to one number per line when the
+  filing's HTML is converted to plain text — and those bare 1–3 digit numbers match the same pattern as
+  real page numbers, so they get silently dropped too. Surrounding sentences and structure are
+  unaffected; only a handful of standalone numeric values are lost in this one section. Not expected to
+  materially change an embedding built from sentence-level meaning, but a real, found-not-assumed
+  limitation of a simple cleaning rule, reported rather than quietly left out.
 
 Full discussion, including every default chosen and why: [DECISIONS.md](DECISIONS.md).
 
