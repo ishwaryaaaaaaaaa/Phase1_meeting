@@ -237,6 +237,43 @@ the running evidence to lock in before all agents speak — and, consistent with
 provably valid, **zero winner mismatches were observed under early stopping across all conditions
 tested** (also verified on 600 synthetic random-world pairs in `tests/test_engine.py`).
 
+### 4.5 LLM-based debate: real agents, real text
+
+Everything above runs the debate as arithmetic: an agent's "opinion" is one dot product, agents never
+see each other, and the identity in §2.3 holds because addition commutes. `src/llm_debate.py` asks a
+different question — what happens with the *same* three perspectives (Finance, ESG, Risk), but each one
+is a real language model call instead of a number? Concretely: each agent is a system prompt restricting
+it to its one perspective, shown the company's *real* underlying figures (revenue CAGR, profit margin,
+ESG risk score, volatility, drawdown — not an embedding), and asked for a verdict and a confidence score
+in $[-1,+1]$. Unlike the math engine, each agent also sees the **full text** of every agent that spoke
+before it, so real revision is possible, and nothing here guarantees order-independence — this is a
+genuinely different mechanism, run on 3 pairs (NVDA–VZ, XOM–HD, MSFT–NVDA) via Groq
+(`openai/gpt-oss-20b`), not a reimplementation of the math engine.
+
+<p align="center"><img src="outputs/llm_vs_math_comparison.png" width="820" alt="Math engine margins vs real LLM agent confidence, per perspective, for three company pairs"></p>
+<p align="center"><sub>Figure 8. Same company pairs, same three perspectives, two independent ways of
+forming an opinion: the math engine's margin (grey, rescaled to $\pm1$ for comparability) against the
+real LLM agent's own stated confidence (coloured). NVDA–VZ and XOM–HD: both methods agree on every
+agent's direction and on the overall winner. MSFT–NVDA: they disagree.</sub></p>
+
+The MSFT–NVDA disagreement is the interesting result, and it is explainable from the real numbers, not
+noise. On **Finance**, the math engine's margin is essentially a coin flip ($-0.0005$) — but NVDA's real
+3-year revenue CAGR is $+100\%$ against MSFT's $+16.1\%$, and its profit margin is $60.4\%$ against
+$46.8\%$; the LLM agent, reading those numbers directly, calls it decisively for NVDA (confidence
+$+0.9$). On **ESG**, the math engine's direction favours MSFT ($-0.0413$), but the *actual*
+Sustainalytics risk scores say NVDA is lower-risk ($13.6$ vs. MSFT's $15.1$, lower is better) — the
+LLM, given the real score, favours NVDA just as decisively, and the embedding-learned direction gets
+this one pair backwards. Only **Risk** agrees: both methods favour MSFT (real volatility $26.3\%$ vs.
+$46.8\%$), consistent with real numbers either way.
+
+This is not a failure of the math engine in general — §4.2 already reports its held-out pair accuracy
+honestly (74.8–86.2%, not 100%) — it is a concrete instance of exactly that: a direction fit once across
+all 30 companies is a statistical approximation, and on any *specific* pair it can miss a gap that is
+obvious once you read the real numbers for just those two companies. The LLM agent has no such
+approximation step; it is handed the literal figures for exactly the two companies being compared. Full
+transcripts: `outputs/llm_debate_{NVDA_vs_VZ,XOM_vs_HD,MSFT_vs_NVDA}.json`; comparison code:
+`src/p11_llm_insights.py`.
+
 ## 5. Limitations
 
 - Scale: 30 companies, 3 agents, 2 debate rounds per pair — a first instantiation of the framework, not
@@ -341,6 +378,10 @@ fast. To add a human-elicited investor profile: `python p06_investor.py --interv
 src/engine.py          debate engine: directions, margins, speaker order, early-stopping bounds, tournament
 src/directions.py      direction fitting (logistic / ridge / mean-difference) + nested cross-validation
 src/p01-p08_*.py       pipeline stages, in order (§3)
+src/p09_tournament_plots.py  Figures 2-3 (tournament progression, final choice by investor)
+src/p10_insight_plots.py     Figures 4-7 (mechanism-insight plots, §4.3.1)
+src/llm_debate.py            real LLM debate engine (§4.5) -- independent of engine.py
+src/p11_llm_insights.py      Figure 8 (LLM vs. math engine comparison, §4.5)
 tests/test_engine.py   whiteboard reproduction + identity/agreement/early-stopping property tests
 data/                  companies, labels, embeddings, learned directions, investor profiles
 outputs/                every table and figure cited above

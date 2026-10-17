@@ -1,0 +1,34 @@
+{
+  "a": "XOM",
+  "b": "HD",
+  "order": [
+    "Finance",
+    "ESG",
+    "Risk"
+  ],
+  "winner": "HD",
+  "final_evidence": 2.2,
+  "transcript": [
+    {
+      "agent": "Finance",
+      "text": "Company B shows stronger financial performance: it has positive revenue growth (+1.5% CAGR) while Company A is declining, and its profit margin (12.7%) exceeds Company A\u2019s 10.5%. Both metrics favor HD, indicating healthier revenue expansion and higher profitability.  \nFINAL: B  \nCONFIDENCE: +0.8",
+      "verdict": "B",
+      "confidence": 0.8,
+      "running_after": 0.8
+    },
+    {
+      "agent": "ESG",
+      "text": "XOM\u2019s high ESG risk score (41.6) and significant controversy level signal substantial environmental and social challenges, whereas HD\u2019s much lower score (12.6) and only moderate controversy suggest a far more robust ESG framework.  From an ESG standpoint, HD is clearly preferable.  \n\nFINAL: B  \nCONFIDENCE: +0.9",
+      "verdict": "B",
+      "confidence": 0.9,
+      "running_after": 1.7000000000000002
+    },
+    {
+      "agent": "Risk",
+      "text": "Company A has the same volatility as Company B but a significantly smaller maximum drawdown over the last three years, indicating lower downside risk in price terms.  \nFINAL: A  \nCONFIDENCE: +0.5",
+      "verdict": "A",
+      "confidence": 0.5,
+      "running_after": 2.2
+    }
+  ]
+}
