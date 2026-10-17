@@ -207,6 +207,66 @@ tested** (also verified on 600 synthetic random-world pairs in `tests/test_engin
 
 Full discussion, including every default chosen and why: [DECISIONS.md](DECISIONS.md).
 
+## Appendix A: Full dataset
+
+Raw values behind every company's Finance/ESG/Risk label — the exact content of `data/labels.csv`
+joined with `data/companies.csv`, before z-scoring or winsorising. Nothing here is estimated; every
+column has a named source.
+
+| Ticker | Sector | 3y Rev CAGR | Margin | Margin basis | ESG risk score | ESG controversy | Volatility (ann.) | Max drawdown |
+|---|---|---:|---:|---|---:|---|---:|---:|
+| AAPL | Technology | 1.8% | 32.0% | operating | 17.2 | Significant | 26.8% | −33.4% |
+| MSFT | Technology | 16.1% | 46.8% | operating | 15.1 | Significant | 26.3% | −34.5% |
+| NVDA | Technology | 100.0%¹ | 60.4% | operating | 13.6 | Moderate | 46.8% | −36.9% |
+| XOM | Oil & Gas | −6.7% | 10.5% | operating | 41.6 | Significant | 23.2% | −20.1% |
+| CVX | Oil & Gas | −7.9% | 9.0% | operating | 36.6 | Significant | 23.1% | −20.8% |
+| COP | Oil & Gas | −9.1% | 19.2% | operating | 33.9 | Moderate | 29.2% | −36.3% |
+| JPM | Banks | 12.5% | 39.9% | pretax² | 29.3 | Significant | 23.1% | −24.4% |
+| BAC | Banks | 6.0% | 33.3% | pretax² | 28.3 | Significant | 24.7% | −27.5% |
+| GS | Banks | 7.2% | 37.5% | pretax² | 25.5 | Moderate | 29.8% | −30.9% |
+| NEE | Utilities | 9.4% | 29.3% | operating | 23.3 | Moderate | 25.7% | −23.8% |
+| DUK | Utilities | 3.9% | 26.6% | operating | 27.0 | Moderate | 16.6% | −13.7% |
+| SO | Utilities | 0.3% | 24.7% | operating | 33.0 | Moderate | 17.5% | −15.5% |
+| WMT | Retail | 5.3% | 4.2% | operating | 25.3 | Significant | 23.3% | −23.3% |
+| COST | Retail | 6.6% | 3.8% | operating | 23.3 | Significant | 20.4% | −20.7% |
+| HD | Retail | 1.5% | 12.7% | operating | 12.6 | Moderate | 23.2% | −31.7% |
+| JNJ | Pharma & Health | 5.6% | 27.2% | operating | 24.0 | High | 18.4% | −14.4% |
+| PFE | Pharma & Health | −14.8% | 27.8% | operating | 24.6 | Significant | 24.2% | −29.0% |
+| UNH | Pharma & Health | 11.4% | 4.2% | operating | 15.3 | Significant | 36.9% | **−61.4%**³ |
+| PG | Consumer Staples | 2.0% | 22.7% | operating | 28.6 | Significant | 18.0% | −21.2% |
+| KO | Consumer Staples | 3.7% | 31.1% | operating | 21.6 | Significant | 16.4% | −15.5% |
+| PEP | Consumer Staples | 2.8% | 14.4% | operating | 22.1 | Significant | 20.0% | −27.5% |
+| CAT | Industrials | 4.4% | 16.5% | operating | 36.2 | High | 32.8% | −34.0% |
+| GE | Industrials | 16.3% | 18.9% | operating | 40.5 | Significant | 31.3% | −21.4% |
+| BA | Industrials | 10.3% | −6.1% | operating | 39.6 | High | 34.8% | −48.3% |
+| UPS | Industrials | −4.0% | 8.9% | operating | 18.6 | Moderate | 29.6% | −44.2% |
+| TSLA | Automotive | 5.2% | 5.1% | operating | 25.2 | Significant | **58.1%**⁴ | −53.8% |
+| F | Automotive | 5.8% | −4.9% | operating | 22.4 | Significant | 36.4% | −36.5% |
+| GM | Automotive | 5.7% | 1.6% | operating | 28.5 | High | 34.5% | −29.1% |
+| T | Telecom | 1.3% | 19.9% | operating | 23.9 | Significant | 23.7% | −28.9% |
+| VZ | Telecom | 0.3% | 21.2% | operating | 18.7 | Significant | 23.7% | −17.8% |
+
+¹ Winsorised at $\pm2.5\sigma$ before entering the Finance label (§3) — NVDA's real growth was extreme
+enough to otherwise dominate the whole Finance scale by itself.
+² Banks report no standard "Operating Income" line in Yahoo Finance's statements; Pretax Income ÷
+Revenue is used instead (`p03_labels.py:finance_raw`).
+³ Largest drawdown in the dataset.
+⁴ Largest volatility in the dataset.
+
+**Column sources:**
+
+| Column | Source | Window / as-of |
+|---|---|---|
+| 3y Rev CAGR, Margin | Yahoo Finance annual income statements (`yfinance`) | pulled live, run date |
+| ESG risk score, ESG controversy | Sustainalytics Total ESG Risk score, via Kaggle `pritish509/s-and-p-500-esg-risk-ratings` | file dated 2024-06-07 |
+| Volatility, Max drawdown | Yahoo Finance daily close prices (`yfinance`) | 3-year trailing window, pulled live |
+
+**What the raw numbers show, before any modelling:** the oil majors (XOM, CVX, COP) have *negative*
+revenue growth and the *worst* ESG scores (33.9–41.6) of any sector — the clearest Finance-vs-ESG split
+in the set, by design (§3). TSLA is the clear Risk outlier (58.1% volatility, the highest in the
+dataset). UNH has the single worst drawdown (−61.4%) despite above-average revenue growth (11.4%) — a
+case where Finance and Risk disagree sharply on the same company.
+
 ## Reproducing the results
 
 ```bash
