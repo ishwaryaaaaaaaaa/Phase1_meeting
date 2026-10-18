@@ -84,15 +84,24 @@ def _call(messages, max_tokens=700, max_retries=5):
             time.sleep(wait)
 
 
-def agent_prompt(agent, tickerA, tickerB, rowA, rowB, prior_arguments):
+def agent_prompt(agent, tickerA, tickerB, rowA, rowB, prior_arguments, model_hint=None):
     """Build this agent's user prompt. `prior_arguments` is a list of (agent_name, verdict_text) for
-    whichever agents already spoke this debate -- empty for the first speaker."""
+    whichever agents already spoke this debate -- empty for the first speaker. `model_hint`, if given, is
+    this agent's OWN perspective's margin from the math engine (engine.py) -- one more voice in the same
+    debate, not a ground truth, so the agent is told explicitly it may agree or disagree with it."""
     facts = FACTS[agent]
     body = (
         f"Evaluate these two companies and say which is better on YOUR perspective only.\n\n"
         f"Company A -- {tickerA}:\n{facts(rowA)}\n\n"
         f"Company B -- {tickerB}:\n{facts(rowB)}\n\n"
     )
+    if model_hint:
+        body += (
+            f"A separate statistical model (trained on patterns across 30 companies' filings, not on "
+            f"these exact numbers) also scored this same comparison on your perspective: {model_hint} "
+            f"Treat this as one more opinion in the debate, not a fact -- you may agree or override it "
+            f"based on the real numbers above.\n\n"
+        )
     if prior_arguments:
         body += "Other agents have already given their views in this debate:\n\n"
         for name, text in prior_arguments:
@@ -120,18 +129,22 @@ def parse_verdict(text):
     return verdict, conf
 
 
-def run_llm_debate(tickerA, tickerB, order=AGENTS, show_prior=True, labels=None):
+def run_llm_debate(tickerA, tickerB, order=AGENTS, show_prior=True, labels=None, model_hints=None):
     """Run one real LLM debate between two companies. Returns a dict with each agent's full text,
     parsed verdict/confidence, and the running tally (count of A-votes vs B-votes, weighted by
-    confidence) after each speaker -- the LLM analogue of 'running evidence'."""
+    confidence) after each speaker -- the LLM analogue of 'running evidence'. `model_hints`, if given, is
+    a dict {agent_name: hint_text} -- that agent's own math-engine margin, folded into its prompt as one
+    more voice in the debate (see agent_prompt)."""
     labels = labels if labels is not None else load_labels(load_companies().index.tolist())
     rowA, rowB = labels.loc[tickerA], labels.loc[tickerB]
+    model_hints = model_hints or {}
 
     transcript = []
     prior = []
     running = 0.0
     for agent in order:
-        prompt = agent_prompt(agent, tickerA, tickerB, rowA, rowB, prior if show_prior else [])
+        prompt = agent_prompt(agent, tickerA, tickerB, rowA, rowB, prior if show_prior else [],
+                              model_hint=model_hints.get(agent))
         messages = [{"role": "system", "content": SYSTEM_PROMPTS[agent]}, {"role": "user", "content": prompt}]
         text = _call(messages)
         verdict, conf = parse_verdict(text)

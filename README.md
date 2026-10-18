@@ -341,6 +341,38 @@ approximation step; it is handed the literal figures for exactly the two compani
 transcripts: `outputs/llm_debate_{NVDA_vs_VZ,XOM_vs_HD,MSFT_vs_NVDA}.json`; comparison code:
 `src/p11_llm_insights.py`.
 
+### 4.6 Hybrid: math for the tournament, LLM as tiebreaker on close calls
+
+§4.5 ran the LLM debate as a fully separate experiment on 3 hand-picked pairs. `src/p12_hybrid_debate.py`
+instead combines the two inside one real tournament: the balanced investor's full 30-company bracket
+runs on the math engine as normal, but any debate whose $|{\text{final evidence}}|$ falls below 0.03 (a
+near-coin-flip) is handed to a real LLM debate as a tiebreaker — and each LLM agent is shown its own
+perspective's math margin as one more voice in its own debate, which it may agree with or override, the
+same way it already treats a prior agent's argument (§4.5).
+
+| Pair | Math said | LLM said | Outcome |
+|---|---|---|---|
+| F vs CAT | CAT | CAT | confirmed |
+| UNH vs HD | HD | HD | confirmed |
+| JPM vs PG | PG | PG | confirmed |
+| VZ vs AAPL | VZ | **AAPL** | **overridden** |
+| AAPL vs KO¹ | AAPL | **KO** | **overridden** |
+| HD vs NEE | HD | **NEE** | **overridden** |
+
+¹ Exists only because of the VZ-vs-AAPL override — overriding a winner changes who it meets next, so
+this pair never appears in the pure-math bracket at all.
+
+**3 of the 6 close calls flipped (50%) when a real LLM read the actual numbers** — evidence that these
+specific debates genuinely were coin-flips the math engine's margin shouldn't have been trusted on.
+**The final tournament winner is still MSFT**, unchanged from the pure-math run: MSFT's own path through
+the bracket (beating JNJ, then NVDA, then T, then KO in the final) never happened to pass through one of
+the close calls, so none of the 3 overrides touched it.
+
+Scope limit, found while building this: the threshold checks the *whole debate's* final evidence, not
+each individual agent's margin — so it does not catch a case like MSFT vs NVDA (§4.5), where the overall
+final evidence (−0.0619) wasn't close even though Finance's own margin within it (−0.0005) was. Full
+log: `outputs/hybrid_tournament_balanced.json`.
+
 ## 5. Limitations
 
 - Scale: 30 companies, 3 agents, 2 debate rounds per pair — a first instantiation of the framework, not
@@ -449,6 +481,7 @@ src/p09_tournament_plots.py  tournament progression / final-choice plots (backgr
 src/p10_insight_plots.py     mechanism-insight plots (background material, outputs/ only)
 src/llm_debate.py            real LLM debate engine (§4.5) -- independent of engine.py
 src/p11_llm_insights.py      LLM vs. math engine comparison, tables in §4.5
+src/p12_hybrid_debate.py     hybrid tournament: math + LLM tiebreaker on close calls (§4.6)
 tests/test_engine.py   whiteboard reproduction + identity/agreement/early-stopping property tests
 data/                  companies, labels, embeddings, learned directions, investor profiles
 outputs/                every table and figure cited above
