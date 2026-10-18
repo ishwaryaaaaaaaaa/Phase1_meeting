@@ -179,47 +179,87 @@ same overall winner (MSFT) in this company set — but their complete 30-company
 only $\rho = 0.57$ (finance-heavy vs. esg-heavy), indicating materially different preferences that
 happened to coincide at rank 1 (full correlation matrix in RESULTS.md §7).
 
-<p align="center"><img src="outputs/tournament_progression.png" width="640" alt="Tournament progression: current leader's full-agent score, debate by debate, per investor"></p>
-<p align="center"><sub>Figure 2. Each investor's single-elimination tournament over all 30 companies —
-29 debates, 87 agent messages, per investor (§3). The line tracks the <em>currently undefeated</em>
-company's own full-agent score after each debate; it zigzags because the elimination queue is
-randomised, not sorted by strength, so a weak challenger can enter and briefly pull the line down
-before being eliminated itself. All three converge to MSFT, but via different paths — different
-debates, different near-misses along the way.</sub></p>
+**Final tournament winner, per investor** (all three converge on MSFT here, but the margin differs —
+the ESG-heavy investor's winner scores much higher under its own weights, since MSFT's ESG profile is
+worth more to an investor who weights ESG at 70%):
 
-<p align="center"><img src="outputs/final_choice_by_investor.png" width="480" alt="Final tournament winner and its score, per investor"></p>
-<p align="center"><sub>Figure 3. The company each investor's tournament ends on, and that company's
-own full-agent score under that investor's weights. Same winner (MSFT) for all three here — but note
-the ESG-heavy investor scores its winner noticeably higher (0.223) than the other two (0.152–0.154),
-since MSFT's strong ESG profile is worth more to an investor who weights ESG at 70%.</sub></p>
+| Investor | $\beta_F,\beta_E,\beta_R$ | Winner | Winner's $S_{\text{ALL}}$ |
+|---|---|---|---|
+| Finance-heavy | 0.70, 0.15, 0.15 | MSFT | 0.154 |
+| ESG-heavy | 0.15, 0.70, 0.15 | MSFT | **0.223** |
+| Balanced | 0.40, 0.35, 0.25 | MSFT | 0.152 |
 
-### 4.3.1 Opening up the mechanism
+**How one tournament actually plays out** — the full 29-debate bracket for the balanced investor, in
+order, exactly as run (queue-based single elimination: pop the front two, debate, loser is out, winner
+rejoins the back of the queue — §2.5). MSFT doesn't appear until debate 15, then wins every debate it's
+in (debates 15, 23, 27, 29) on its way to the final win over VZ:
 
-The plots above show *outcomes*. These four show *why* — the actual numbers underneath, not just who won.
+<details>
+<summary>All 29 debates (balanced investor) — click to expand</summary>
 
-<p align="center"><img src="outputs/why_msft_wins.png" width="640" alt="Why MSFT keeps winning: scores across three perspectives for MSFT and its closest rivals"></p>
-<p align="center"><sub>Figure 4. MSFT isn't #1 on any single perspective (Finance #2, ESG #3, Risk #20)
-— but it's the only company in this set that's strong on more than one at once. NVDA is the Finance
-leader but has the worst Risk score of all 30; HD and DUK are each a one-trick pony on a different
-axis. Consistency, not dominance, is what wins a weighted-sum tournament.</sub></p>
+| # | A | B | Winner | Eliminated | Final evidence |
+|---|---|---|---|---|---:|
+| 1 | NVDA | SO | **NVDA** | SO | −0.1301 |
+| 2 | F | CAT | **CAT** | F | +0.0211 |
+| 3 | DUK | CVX | **DUK** | CVX | −0.1606 |
+| 4 | T | PFE | **T** | PFE | −0.0622 |
+| 5 | BA | JPM | **JPM** | BA | +0.1210 |
+| 6 | PG | TSLA | **PG** | TSLA | −0.0853 |
+| 7 | XOM | VZ | **VZ** | XOM | +0.2232 |
+| 8 | GS | AAPL | **AAPL** | GS | +0.1026 |
+| 9 | KO | WMT | **KO** | WMT | −0.0673 |
+| 10 | PEP | COST | **PEP** | COST | −0.0634 |
+| 11 | BAC | COP | **BAC** | COP | −0.1226 |
+| 12 | UNH | HD | **HD** | UNH | +0.0292 |
+| 13 | GE | NEE | **NEE** | GE | +0.0596 |
+| 14 | GM | UPS | **UPS** | GM | +0.0539 |
+| 15 | MSFT | JNJ | **MSFT** | JNJ | −0.1120 |
+| 16 | NVDA | CAT | **NVDA** | CAT | −0.1889 |
+| 17 | DUK | T | **T** | DUK | +0.0868 |
+| 18 | JPM | PG | **PG** | JPM | +0.0181 |
+| 19 | VZ | AAPL | **VZ** | AAPL | −0.0004 |
+| 20 | KO | PEP | **KO** | PEP | −0.0367 |
+| 21 | BAC | HD | **HD** | BAC | +0.0448 |
+| 22 | NEE | UPS | **NEE** | UPS | −0.0677 |
+| 23 | MSFT | NVDA | **MSFT** | NVDA | −0.0619 |
+| 24 | T | PG | **T** | PG | −0.0531 |
+| 25 | VZ | KO | **VZ** | KO | −0.0021 |
+| 26 | HD | NEE | **HD** | NEE | −0.0280 |
+| 27 | MSFT | T | **MSFT** | T | −0.0878 |
+| 28 | VZ | HD | **VZ** | HD | −0.0443 |
+| 29 | MSFT | VZ | **MSFT** | VZ | −0.0792 |
 
-<p align="center"><img src="outputs/perspective_radar.png" width="440" alt="Radar chart comparing MSFT, NVDA, XOM, and HD across Finance, ESG, and Risk"></p>
-<p align="center"><sub>Figure 5. The same idea as a shape: MSFT's profile is the most rounded of the
-four; NVDA, XOM and HD are each spiky on one axis and collapse on another.</sub></p>
+"Final evidence" is the running total after all 3 agents speak (negative = A wins, positive = B wins);
+source: `outputs/tournament_balanced.json`.
 
-<p align="center"><img src="outputs/embedding_directions.png" width="640" alt="Company embeddings with the three learned perspective directions drawn as arrows"></p>
-<p align="center"><sub>Figure 6. The 384-dimensional Finance/ESG/Risk directions, projected into the
-same 2-D view as the company embeddings (arrows rescaled to equal length — only the <em>angle</em>
-between them is meaningful here, not their length; see §4.2's real, un-rescaled $G$ matrix for that).
-Risk and ESG point in noticeably different directions from Finance, visually matching $G$'s negative
-Risk&ndash;ESG entry.</sub></p>
+</details>
 
-<p align="center"><img src="outputs/worked_debate_waterfall.png" width="560" alt="Waterfall chart of the NVDA vs VZ debate, showing each agent's margin and the running evidence"></p>
-<p align="center"><sub>Figure 7. One real pair debate (NVDA vs. VZ, balanced investor), as a waterfall:
-each bar is one agent's margin, the dashed line is the running evidence total after that agent speaks.
-Finance's strong vote for NVDA (−0.0599) is partly offset by Risk favouring VZ (+0.0430); ESG's
-contribution here is genuinely negligible (−0.0003) — NVDA wins on the strength of Finance and Risk
-roughly cancelling in its favour, not because of ESG.</sub></p>
+**One debate, mechanically** — NVDA vs VZ is not from the bracket above (it's a separate illustrative
+pair, run the same way but outside the tournament), shown here to make *how* a single debate adds up,
+agent by agent, in speaker order, fully visible:
+
+| Speaker | $\beta$ | Why this order | Margin | Running evidence |
+|---|---|---|---:|---:|
+| Finance | 0.40 | highest weight speaks first | −0.0599 | −0.0599 (favours NVDA) |
+| Risk | 0.25 | strongest challenger of Finance ($G=+0.14$) | +0.0430 | −0.0170 (favours NVDA) |
+| ESG | 0.35 | only agent left | −0.0003 | −0.0173 (favours NVDA) |
+
+Final evidence −0.0173 → **NVDA wins, VZ eliminated**. Identity check: $m_F+m_E+m_R=-0.0173$, and
+$S_{\text{ALL}}(\text{VZ})-S_{\text{ALL}}(\text{NVDA})=-0.0173$ — matches exactly, as required by §2.3.
+
+**Why MSFT keeps winning** — it is not ranked #1 on any single perspective, but it's the only company
+in the set that's strong on more than one at once:
+
+| Ticker | Finance rank | ESG rank | Risk rank |
+|---|---:|---:|---:|
+| MSFT | #2 | #3 | #20 |
+| NVDA (Finance #1) | #1 | #2 | #28 (worst in the set) |
+| HD (ESG #1) | #19 | #1 | #18 |
+| DUK (Risk #1) | #11 | #19 | #1 |
+
+NVDA tops Finance but has the worst Risk score of all 30 companies; HD and DUK are each a one-trick
+pony on a single axis. MSFT is consistently good rather than exceptional anywhere, which is what a
+weighted-sum tournament rewards. (Ranks out of 30, 1 = best; source: `data/labels.csv`.)
 
 ### 4.4 Stress tests
 
@@ -250,11 +290,38 @@ before it, so real revision is possible, and nothing here guarantees order-indep
 genuinely different mechanism, run on 3 pairs (NVDA–VZ, XOM–HD, MSFT–NVDA) via Groq
 (`openai/gpt-oss-20b`), not a reimplementation of the math engine.
 
-<p align="center"><img src="outputs/llm_vs_math_comparison.png" width="820" alt="Math engine margins vs real LLM agent confidence, per perspective, for three company pairs"></p>
-<p align="center"><sub>Figure 8. Same company pairs, same three perspectives, two independent ways of
-forming an opinion: the math engine's margin (grey, rescaled to $\pm1$ for comparability) against the
-real LLM agent's own stated confidence (coloured). NVDA–VZ and XOM–HD: both methods agree on every
-agent's direction and on the overall winner. MSFT–NVDA: they disagree.</sub></p>
+**Result, pair by pair** — math engine (balanced investor) vs. the real LLM debate, same two companies,
+same three perspectives:
+
+| Pair | Math winner | LLM winner | Agree? |
+|---|---|---|---|
+| NVDA vs VZ | NVDA | NVDA | ✅ |
+| XOM vs HD | HD | HD | ✅ |
+| MSFT vs NVDA | MSFT | NVDA | ❌ |
+
+**Agent-by-agent**, so the disagreement on MSFT vs NVDA is traceable to exactly where it comes from
+(positive = favours the second-named company; math margin is the raw, un-scaled dot product; LLM
+confidence is self-reported by the model, range $-1$ to $+1$):
+
+| Pair | Agent | Math margin | LLM verdict | LLM confidence |
+|---|---|---:|---|---:|
+| NVDA vs VZ | Finance | −0.0599 | NVDA | −0.90 |
+| NVDA vs VZ | ESG | −0.0003 | NVDA | −0.80 |
+| NVDA vs VZ | Risk | +0.0430 | VZ | +0.80 |
+| XOM vs HD | Finance | +0.0219 | HD | +0.80 |
+| XOM vs HD | ESG | +0.1729 | HD | +0.90 |
+| XOM vs HD | Risk | −0.0159 | XOM | +0.50¹ |
+| MSFT vs NVDA | Finance | −0.0005 | NVDA | +0.90 |
+| MSFT vs NVDA | ESG | −0.0413 | NVDA | +0.85 |
+| MSFT vs NVDA | Risk | −0.0202 | MSFT | −0.75 |
+
+¹ Raw model output, kept as-is: on this one reply the model wrote `FINAL: A` but `CONFIDENCE: +0.5`,
+contradicting its own stated convention (negative should accompany A). The code sums confidence values
+literally, so this still counted as +0.50 toward HD's total — a real inconsistency in a single LLM
+reply, not cleaned up for the table.
+
+(Full transcripts: `outputs/llm_debate_{NVDA_vs_VZ,XOM_vs_HD,MSFT_vs_NVDA}.json`; generated by
+`src/p11_llm_insights.py`.)
 
 The MSFT–NVDA disagreement is the interesting result, and it is explainable from the real numbers, not
 noise. On **Finance**, the math engine's margin is essentially a coin flip ($-0.0005$) — but NVDA's real
@@ -378,10 +445,10 @@ fast. To add a human-elicited investor profile: `python p06_investor.py --interv
 src/engine.py          debate engine: directions, margins, speaker order, early-stopping bounds, tournament
 src/directions.py      direction fitting (logistic / ridge / mean-difference) + nested cross-validation
 src/p01-p08_*.py       pipeline stages, in order (§3)
-src/p09_tournament_plots.py  Figures 2-3 (tournament progression, final choice by investor)
-src/p10_insight_plots.py     Figures 4-7 (mechanism-insight plots, §4.3.1)
+src/p09_tournament_plots.py  tournament progression / final-choice plots (background material, outputs/ only)
+src/p10_insight_plots.py     mechanism-insight plots (background material, outputs/ only)
 src/llm_debate.py            real LLM debate engine (§4.5) -- independent of engine.py
-src/p11_llm_insights.py      Figure 8 (LLM vs. math engine comparison, §4.5)
+src/p11_llm_insights.py      LLM vs. math engine comparison, tables in §4.5
 tests/test_engine.py   whiteboard reproduction + identity/agreement/early-stopping property tests
 data/                  companies, labels, embeddings, learned directions, investor profiles
 outputs/                every table and figure cited above
